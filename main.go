@@ -14,6 +14,7 @@ func main() {
 	fmt.Println("Um número inteiro aleatório entre 0 e 100 será sorteado. Tente acertar")
 
 	x := rand.Int64N(101)
+	x = 10
 	scanner := bufio.NewScanner(os.Stdin)
 	userGuesses := [10]int64{}
 
@@ -39,7 +40,7 @@ func main() {
 				"Parabéns, você acertou! O número era: %d\n"+
 					"Você acertou em %d tentativas.\n"+
 					"Essas foram as suas tentativas: %v\n",
-				x, i+i, userGuesses,
+				x, i+i, userGuesses[:i],
 			)
 			return
 		}
